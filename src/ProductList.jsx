@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import './ProductList.css';
 import CartItem from './CartItem';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "./CartSlice";
 
 function ProductList({ onHomeClick }) {
 
   const dispatch = useDispatch();
 
+  // Redux cart state
+  const cartItems = useSelector(state => state.cart.items);
+
+  // Total quantity for cart icon
+  const totalQuantity = cartItems.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
+
   const [showCart, setShowCart] = useState(false);
   const [showPlants, setShowPlants] = useState(false);
 
-  // Task-1 state
   const [addedToCart, setAddedToCart] = useState({});
 
   const plantsArray = [
@@ -23,11 +31,12 @@ function ProductList({ onHomeClick }) {
         { name: "Peace Lily", image: "https://cdn.pixabay.com/photo/2019/06/12/14/14/peace-lilies-4269365_1280.jpg", description: "Removes mold spores and purifies the air.", cost: "$18" }
       ]
     }
-    // keep your other categories here
+    // keep other categories if you have them
   ];
 
   const handleAddToCart = (plant) => {
     dispatch(addItem(plant));
+
     setAddedToCart(prev => ({
       ...prev,
       [plant.name]: true
@@ -98,8 +107,15 @@ function ProductList({ onHomeClick }) {
           <div>
             <a href="#" onClick={handlePlantsClick} style={styleA}>Plants</a>
           </div>
-          <div>
+
+          <div style={{ position: "relative" }}>
             <a href="#" onClick={handleCartClick} style={styleA}>🛒</a>
+
+            {totalQuantity > 0 && (
+              <span className="cart_quantity_count">
+                {totalQuantity}
+              </span>
+            )}
           </div>
         </div>
       </div>
