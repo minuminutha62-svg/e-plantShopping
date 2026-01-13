@@ -26,13 +26,38 @@ function ProductList({ onHomeClick }) {
     {
       category: "Air Purifying Plants",
       plants: [
-        { name: "Snake Plant", image: "https://cdn.pixabay.com/photo/2021/01/22/06/04/snake-plant-5939187_1280.jpg", description: "Produces oxygen at night, improving air quality.", cost: "$15" },
-        { name: "Spider Plant", image: "https://cdn.pixabay.com/photo/2018/07/11/06/47/chlorophytum-3530413_1280.jpg", description: "Filters formaldehyde and xylene from the air.", cost: "$12" },
-        { name: "Peace Lily", image: "https://cdn.pixabay.com/photo/2019/06/12/14/14/peace-lilies-4269365_1280.jpg", description: "Removes mold spores and purifies the air.", cost: "$18" }
+        { name: "Snake Plant", image: "...", description: "Air purifier", cost: "$15" },
+        { name: "Spider Plant", image: "...", description: "Air purifier", cost: "$12" },
+        { name: "Peace Lily", image: "...", description: "Air purifier", cost: "$18" },
+        { name: "Boston Fern", image: "...", description: "Air purifier", cost: "$20" },
+        { name: "Rubber Plant", image: "...", description: "Air purifier", cost: "$17" },
+        { name: "Aloe Vera", image: "...", description: "Air purifier", cost: "$14" }
+      ]
+    },
+    {
+      category: "Medicinal Plants",
+      plants: [
+        { name: "Tulsi", image: "...", description: "Medicinal", cost: "$10" },
+        { name: "Mint", image: "...", description: "Medicinal", cost: "$9" },
+        { name: "Neem", image: "...", description: "Medicinal", cost: "$11" },
+        { name: "Basil", image: "...", description: "Medicinal", cost: "$8" },
+        { name: "Lavender", image: "...", description: "Medicinal", cost: "$13" },
+        { name: "Rosemary", image: "...", description: "Medicinal", cost: "$14" }
+      ]
+    },
+    {
+      category: "Indoor Decorative Plants",
+      plants: [
+        { name: "ZZ Plant", image: "...", description: "Decorative", cost: "$22" },
+        { name: "Pothos", image: "...", description: "Decorative", cost: "$16" },
+        { name: "Fiddle Leaf Fig", image: "...", description: "Decorative", cost: "$25" },
+        { name: "Areca Palm", image: "...", description: "Decorative", cost: "$19" },
+        { name: "Calathea", image: "...", description: "Decorative", cost: "$21" },
+        { name: "Monstera", image: "...", description: "Decorative", cost: "$24" }
       ]
     }
-    // keep other categories if you have them
   ];
+  
 
   const handleAddToCart = (plant) => {
     dispatch(addItem(plant));
